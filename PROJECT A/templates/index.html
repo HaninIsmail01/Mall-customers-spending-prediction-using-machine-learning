@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Spending Prediction</title>
+        <style>
+            body {
+                background-color: #F08080;
+            }
+
+            h1 {
+                text-align: center;
+                font-weight: bolder;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <h1> Predict Spending Score based on Annual salary</h1>
+        <form action = {{ url_for( 'make_prediction' ) }} method="post">
+            <p>Enter your ID:</p>
+
+            <p> <input type="float" name="ID" pattern="[+-]?([0-9]*[.])?[0-9]+"
+                    oninvalid="setCustomValidity('Please enter a valid experience value')"
+                    onchange="try{setCustomValidity('')}catch(e){}" /> </p>
+            <p>Enter your Age:</p>
+
+            <p> <input type="float" name="Age" pattern="[+-]?([0-9]*[.])?[0-9]+"
+                    oninvalid="setCustomValidity('Please enter a valid experience value')"
+                    onchange="try{setCustomValidity('')}catch(e){}" /> </p>
+            <p>Enter your Annual salary:</p>
+
+            <p> <input type="float" name="freq" pattern="[+-]?([0-9]*[.])?[0-9]+"
+                    oninvalid="setCustomValidity('Please enter a valid experience value')"
+                    onchange="try{setCustomValidity('')}catch(e){}" /> </p>
+
+            <p>Enter enter if 1 if you are a female:</p>
+
+            <p> <input type="float" name="female" pattern="[+-]?([0-9]*[.])?[0-9]+"
+                    oninvalid="setCustomValidity('Please enter a valid experience value')"
+                    onchange="try{setCustomValidity('')}catch(e){}" /> </p>
+            <p>Enter your 1 if you are a male:</p>
+
+            <p> <input type="float" name="male" pattern="[+-]?([0-9]*[.])?[0-9]+"
+                    oninvalid="setCustomValidity('Please enter a valid experience value')"
+                    onchange="try{setCustomValidity('')}catch(e){}" /> </p>
+
+            <p> <input type="submit" value="predict"/> </p>
+        </form>
+
+        <br>
+
+        <h3>{{ prediction_text }}</h3>
+
+    </body>
+</html>
